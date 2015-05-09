@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Hello from Facelets
+        <h:form>
+            <h:outputLabel value="login"></h:outputLabel>
+            <h:inputText value="#{indexBean.login}" id="login"></h:inputText>
+            <h:outputLabel value="clave"></h:outputLabel>
+            <h:inputText value="#{indexBean.clave}" id="clave"></h:inputText>
+            <h:outputLabel value="nombre"></h:outputLabel>
+            <h:inputText value="#{indexBean.nombre}" id="nombre"></h:inputText>
+            <h:outputLabel value="apellido"></h:outputLabel>
+            <h:inputText value="#{indexBean.apellido}" id="apellido"></h:inputText>
+             <h:outputLabel value="cedula"></h:outputLabel>
+            <h:inputText value="#{indexBean.cedula}" id="cedula"></h:inputText>
+             <h:outputLabel value="telefono"></h:outputLabel>
+            <h:inputText value="#{indexBean.telefono}" id="telefono"></h:inputText>
+             <h:outputLabel value="email"></h:outputLabel>
+            <h:inputText value="#{indexBean.email}" id="email"></h:inputText>
+             <h:outputLabel value="rol"></h:outputLabel>
+            <h:inputText value="#{indexBean.rol}" id="rol"></h:inputText>
+            
+            <h:commandButton action="#{indexBean.crearAdministrador}" value="registrar administrador"></h:commandButton>
+            
+        </h:form>
+        
+    </h:body>
+</html>
+
