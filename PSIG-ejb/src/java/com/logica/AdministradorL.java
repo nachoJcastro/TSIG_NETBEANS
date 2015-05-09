@@ -20,9 +20,9 @@ public class AdministradorL {
     @EJB
     private AdministradorFacadeLocal admfacadelocal;
     
-    public String crearAdministrador(){
-     //   admfacadelocal.crearAdministrador(null, null, null, null, cedula, telefono, null, true);
-        return "AAP";
+    public String crearAdministrador(String login,String clave,String nombre,String apellido,int cedula,int telefono,String email,boolean rol){
+        admfacadelocal.crearAdministrador(login,clave,nombre,apellido,cedula,telefono,email,rol);
+        return "OK";
     }
     
 }
