@@ -21,7 +21,7 @@ public class AdministradorL {
     private AdministradorFacadeLocal admfacadelocal;
     
     public String crearAdministrador(){
-        admfacadelocal.crearAdministrador(null, null, null, null, cedula, telefono, null, true)
+     //   admfacadelocal.crearAdministrador(null, null, null, null, cedula, telefono, null, true);
         return "AAP";
     }
     
