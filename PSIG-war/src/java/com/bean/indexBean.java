@@ -5,6 +5,7 @@
  */
 package com.bean;
 
+import com.entity.Administrador;
 import com.logica.AdministradorL;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -31,15 +32,26 @@ public class indexBean {
     
     @EJB
     private AdministradorL AdmL;
+    private Administrador adm;
     
     public indexBean(){
     }
     
     public boolean crearAdministrador(){
-        
+                
         AdmL.crearAdministrador(login, clave, nombre, apellido, cedula, telefono, email, rol);
         return true;
     }
+    
+    public boolean loginadm(){
+        return AdmL.login(adm.getLogin(),adm.getClave());    
+        //return AdmL.login("vanecas","1");    
+    }
+    
+    public boolean editAdministrador(String login,String clave,String nombre,String apellido,int cedula,int telefono,String email,boolean rol){
+        return AdmL.editAdministrador(login, clave, nombre, apellido, cedula, telefono, email, rol);
+    }
+        
     
      public String getLogin() {
         return login;
