@@ -30,6 +30,11 @@ public interface AdministradorFacadeLocal {
 
     int count();
     
-    boolean crearAdministrador(String login,String clave,String nombre,String apellido,int cedula,int telefono,String email,boolean rol);
+    boolean crearAdministrador(Administrador adm);
     
+    public Administrador findadm(String login);
+    
+    boolean editAdministrador(Administrador adm);
+    
+    boolean login(String login, String clave);
 }
