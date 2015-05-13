@@ -18,7 +18,7 @@ public interface InmuebleFacadeLocal {
 
     void create(Inmueble inmueble);
 
-    void edit(Inmueble inmueble);
+    //void edit(Inmueble inmueble);
 
     void remove(Inmueble inmueble);
 
@@ -29,5 +29,10 @@ public interface InmuebleFacadeLocal {
     List<Inmueble> findRange(int[] range);
 
     int count();
+    
+    public boolean crearInmueble(Inmueble inm);
+    
+    public Inmueble findInmueble(int gidinmueble);
+    public boolean editarInmueble(Inmueble inm);
     
 }

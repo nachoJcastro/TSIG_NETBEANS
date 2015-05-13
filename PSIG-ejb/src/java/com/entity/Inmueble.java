@@ -104,10 +104,34 @@ public class Inmueble implements Serializable {
     public Inmueble() {
     }
 
+    public Inmueble(int gidInm, String proposito, String estado, int tipo, double valormin, double valormax, String direccion,int padron, Object idPropietario, int banios, int habitaciones, int pisos, boolean garage, boolean jardin,String descripcion,String titulo, Object gidzona, Object idAdmin ){
+        
+        this.gidInm = gidInm;
+        this.proposito = proposito;
+        this.estado = estado;
+        this.tipo = tipo;
+        this.valormin = valormin;
+        this.valormax = valormax;
+        this.direccion = direccion;
+        this.padron = padron;
+        this.idPropietario = (Propietario) idPropietario;
+        this.banios = banios;
+        this.habitaciones = habitaciones;
+        this.pisos = pisos;
+        this.garage = garage;
+        this.jardin = jardin;
+        this.descripcion = descripcion;
+        this.titulo = titulo;
+        this.gidzona = (Zonas) gidzona;
+        this.idAdmin = (Administrador) idAdmin;                
+    }
+    
+    
     public Inmueble(Integer gidInm) {
         this.gidInm = gidInm;
     }
 
+    
     public Integer getGidInm() {
         return gidInm;
     }
@@ -293,6 +317,10 @@ public class Inmueble implements Serializable {
     @Override
     public String toString() {
         return "com.entity.Inmueble[ gidInm=" + gidInm + " ]";
+    }
+
+    private int setGidInm() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
