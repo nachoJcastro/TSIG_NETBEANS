@@ -6,6 +6,7 @@
 package com.DAO;
 
 import com.entity.Imagenes;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -27,5 +28,14 @@ public class ImagenesFacade extends AbstractFacade<Imagenes> implements Imagenes
     public ImagenesFacade() {
         super(Imagenes.class);
     }
+    
+    @Override
+    public List<Imagenes> findAllImg() {
+        javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
+        cq.select(cq.from(Imagenes.class));
+        return getEntityManager().createQuery(cq).getResultList();                
+    }
+    
+   
     
 }

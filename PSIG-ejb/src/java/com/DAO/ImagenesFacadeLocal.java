@@ -24,10 +24,11 @@ public interface ImagenesFacadeLocal {
 
     Imagenes find(Object id);
 
-    List<Imagenes> findAll();
+    List<Imagenes> findAllImg();
 
     List<Imagenes> findRange(int[] range);
 
     int count();
+    
     
 }

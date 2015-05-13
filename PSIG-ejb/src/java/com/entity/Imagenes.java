@@ -51,6 +51,13 @@ public class Imagenes implements Serializable {
     public Imagenes() {
     }
 
+    public Imagenes(String ruta, boolean destacada, Object gidInm){
+        this.setRuta(ruta);
+        this.setDestacada(destacada);
+        this.setGidInm((Inmueble) gidInm);
+    }
+    
+    
     public Imagenes(Integer idImg) {
         this.idImg = idImg;
     }

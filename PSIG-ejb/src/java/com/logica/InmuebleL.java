@@ -5,7 +5,9 @@
  */
 package com.logica;
 
+import com.DAO.ImagenesFacadeLocal;
 import com.DAO.InmuebleFacadeLocal;
+import com.entity.Imagenes;
 import com.entity.Inmueble;
 import java.util.List;
 import javax.ejb.EJB;
@@ -22,6 +24,7 @@ public class InmuebleL {
     
     @EJB
     private InmuebleFacadeLocal inmfacade;
+    private ImagenesFacadeLocal imagenfacade;
     
     public boolean crearInmueble(Inmueble inm){        
         inmfacade.crearInmueble(inm);
@@ -55,6 +58,35 @@ public class InmuebleL {
     
     public List<Inmueble> AllInmueble(){                
         return inmfacade.findAll();
+    }
+    
+    
+    public List<Imagenes> findImagenesInm(Object gidinmueble){
+        List<Imagenes> all = imagenfacade.findAllImg();
+        List<Imagenes> resultado = null;
+        
+        for(int i=0;i< all.size()-1;i++){
+            Imagenes img = (Imagenes) all.get(i);
+            
+            if(gidinmueble == img.getGidInm()){
+                resultado.add(img);
+            } 
+        }           
+        return resultado;
+    }
+    
+     public List<Imagenes> findImagenDestacada(Object gidinmueble){
+        List<Imagenes> all = imagenfacade.findAllImg();
+        List<Imagenes> resultado = null;
+        
+        for(int i=0;i< all.size()-1;i++){
+            Imagenes img = (Imagenes) all.get(i);
+            
+            if(gidinmueble == img.getGidInm() && img.getDestacada() == true){
+                resultado.add(img);
+            } 
+        }           
+        return resultado;
     }
     
 }

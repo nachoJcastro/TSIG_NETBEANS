@@ -64,6 +64,15 @@ public class Consulta implements Serializable {
     public Consulta() {
     }
 
+    public Consulta(String nombre, String apellido, int telefono, String email, String descripcion, Object gidInm ){
+        this.setNombre(nombre);
+        this.setApellido(apellido);
+        this.setTelefono(telefono);
+        this.setEmail(email);
+        this.setDescripcion(descripcion);
+        this.setGidInm((Inmueble) gidInm);
+    }
+    
     public Consulta(Integer idConsulta) {
         this.idConsulta = idConsulta;
     }
