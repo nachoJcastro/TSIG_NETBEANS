@@ -10,7 +10,6 @@ import com.logica.AdministradorL;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
 
 /**
  *
@@ -18,7 +17,7 @@ import javax.faces.bean.SessionScoped;
  */
 @ManagedBean
 @RequestScoped
-public class indexBean {
+public class AltaAdministrador {
     
     private String login;
     private String clave;
@@ -34,7 +33,7 @@ public class indexBean {
     private AdministradorL AdmL;
     private Administrador adm;
     
-    public indexBean(){
+    public AltaAdministrador(){
     }
     
     public boolean crearAdministrador(){

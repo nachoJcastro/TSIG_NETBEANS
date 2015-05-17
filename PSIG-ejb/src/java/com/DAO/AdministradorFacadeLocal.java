@@ -37,4 +37,5 @@ public interface AdministradorFacadeLocal {
     boolean editAdministrador(Administrador adm);
     
     boolean login(String login, String clave);
+    
 }

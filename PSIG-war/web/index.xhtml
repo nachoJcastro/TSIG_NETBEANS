@@ -1,23 +1,64 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html">
     <h:head>
-        <title>Facelet Title</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        <h:outputStylesheet name="css/bootstrap.css" />
+        <h:outputStylesheet name="css/bootstrap-theme.min.css" />
+        <h:outputScript name="js/jquery.js" />
+        <h:outputScript name="js/bootstrap.js" />
+        <title>how to use bootstrap css in JSF</title>
     </h:head>
-    <h:body>
-        Hello from Facelets
-      
-         <h:form id="LoginForm">
-                    <h:panelGrid columns="2">
-                        <h:outputText value="Usuario" />                       
-                        <h:inputText value="#{indexBean.login}" />
-                        <h:outputText value="Password" />
-                        <h:inputSecret value="#{indexBean.clave}" />
-                    </h:panelGrid>
-                    <h:commandButton value="Ingresar" action="#{indexBean.loginadm()}"/>
-                </h:form>
+    <h:body>  
+        <div class="navbar navbar-inverse" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Project name</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <!--<ul class="nav navbar-nav">
+                      <li><h:link outcome="/AltaAdministrador" value="Alta Administrador"/></li>
+                    </ul>-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><h:link outcome="/admin" value="Admin"/></li>
+                        <li><h:link outcome="/login" value="LogIn"/></li>
+                    </ul>
+                    <!--<h:form class="navbar-form navbar-right" role="form">
+                        <div class="form-group">
+                            <h:inputText h:placeholder="Nick" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <h:inputSecret h:placeholder="Password" class="form-control" />
+                        </div>
+                        <h:commandButton type="submit" value="Login" action="{loginBean.checkLogin()}" class="btn btn-success"/>
+                        <h:messages />
+                    </h:form>-->
+                </div><!--/.navbar-collapse -->
+            </div>
+        </div>
+        <div class="container">
+            
+            <div class="jumbotron">
+                <h1>Bienvenido a Imobiliaria!!!</h1>
+            </div>
           
+        </div>
+        <footer>
+            <p>Company 2014</p>
+        </footer>
+
     </h:body>
 </html>
+
+
 
