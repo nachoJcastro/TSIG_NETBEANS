@@ -62,20 +62,7 @@ public class Propietario implements Serializable {
 
     public Propietario() {
     }
-    //se trabaja en a clase
-    
-    public Propietario(int idPropietario, String nombre, String apellido, int telefono, String email, int ci  ){
-        
-        this.idPropietario = idPropietario;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.telefono = telefono;
-        this.email = email;
-        this.ci = ci;
 
-               
-    }
-    
     public Propietario(Integer idPropietario) {
         this.idPropietario = idPropietario;
     }

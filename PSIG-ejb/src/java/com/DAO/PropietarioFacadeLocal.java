@@ -9,7 +9,6 @@ import com.entity.Propietario;
 import java.util.List;
 import javax.ejb.Local;
 
-
 /**
  *
  * @author vane
@@ -19,7 +18,7 @@ public interface PropietarioFacadeLocal {
 
     void create(Propietario propietario);
 
-    //void edit(Propietario propietario);
+    void edit(Propietario propietario);
 
     void remove(Propietario propietario);
 
@@ -31,11 +30,4 @@ public interface PropietarioFacadeLocal {
 
     int count();
     
-    //se agrega
-    public boolean crearPropietario(Propietario prop);
-    
-    public boolean editarPropietario(Propietario idprop);
-      
-    public Propietario findPropietario(int idProp);
-    
-  }
+}

@@ -9,7 +9,6 @@ import com.entity.Propietario;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.util.List;
 
 /**
  *
@@ -29,38 +28,4 @@ public class PropietarioFacade extends AbstractFacade<Propietario> implements Pr
         super(Propietario.class);
     }
     
-    @Override
-    public boolean crearPropietario(Propietario prop){
-        em.persist(prop);
-        return true;
-     }
-    
-    @Override
-    public boolean editarPropietario(Propietario prop){
-        em.merge(prop);
-        return true;
-    }
-    
-    @Override
-    public List<Propietario> findAll() {
-        javax.persistence.criteria.CriteriaQuery query = getEntityManager().getCriteriaBuilder().createQuery();
-        query.select(query.from(Propietario.class));
-        return getEntityManager().createQuery(query).getResultList();                
-    }
-    
-    @Override
-    public Propietario findPropietario(int idProp){
-        List<Propietario> allprop = findAll();                     
-        
-        for(int i=0;i< allprop.size()-1;i++){
-            Propietario prop = (Propietario) allprop.get(i);
-            if(idProp == prop.getIdPropietario()){
-                //busco si tiene el mismo login y si es asi lo retorno
-                return prop;
-            } 
-        }   
-        return null;
-    }
-    
-    //revisar si falta algo
 }
