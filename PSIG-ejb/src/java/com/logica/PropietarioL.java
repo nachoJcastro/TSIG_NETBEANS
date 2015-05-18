@@ -5,9 +5,12 @@
  */
 package com.logica;
 
+import com.DAO.PropietarioFacadeLocal;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
-
+import javax.ejb.EJB;
+import com.entity.Propietario;
+import java.util.List;
 /**
  *
  * @author Gaston
@@ -15,7 +18,34 @@ import javax.ejb.LocalBean;
 @Stateless
 @LocalBean
 public class PropietarioL {
+//se implementa
+    @EJB
+    private PropietarioFacadeLocal propFacade;
+    
+    public boolean crearInmueble(Propietario prop){        
+        propFacade.crearPropietario(prop);
+        return true;
+    }
+    
+    public boolean editarInmueble(Propietario prop){
+        Propietario propietario = propFacade.findPropietario(prop.getIdPropietario());
+        
+        propietario.setNombre(prop.getNombre());
+        propietario.setApellido(prop.getApellido());
+        propietario.setTelefono(prop.getTelefono());
+        propietario.setCi(prop.getCi());
+        propietario.setEmail(prop.getEmail());
 
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+                        
+        return propFacade.editarPropietario(propietario);
+    }
+    
+    
+    public List<Propietario> AllPropietarios(){                
+        return propFacade.findAll();
+    }
+    
+    
+    
+    
 }
