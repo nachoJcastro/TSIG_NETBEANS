@@ -5,7 +5,7 @@
  */
 package com.DAO;
 
-import com.entity.Zonas;
+import com.entity.Zona;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -14,20 +14,17 @@ import javax.ejb.Local;
  * @author vane
  */
 @Local
-public interface ZonasFacadeLocal {
+public interface ZonaFacadeLocal {
 
-    void create(Zonas zonas);
+    
+    boolean crearZona(Zona zon);
+    
+    boolean editarZona(Zona zon);
+    
+    List<Zona> allZona();
 
-    void edit(Zonas zonas);
-
-    void remove(Zonas zonas);
-
-    Zonas find(Object id);
-
-    List<Zonas> findAll();
-
-    List<Zonas> findRange(int[] range);
-
-    int count();
+    Zona buscarZona(int gidzona);
+    
+    boolean borrar(Zona zona);
     
 }

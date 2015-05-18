@@ -8,8 +8,8 @@
     <class>com.entity.Inmueble</class>
     <class>com.entity.Administrador</class>
     <class>com.entity.Consulta</class>
-    <class>com.entity.Zonas</class>
     <class>com.entity.Propietario</class>
+    <class>com.entity.Zona</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="hibernate.hbm2ddl.auto" value="update"/>

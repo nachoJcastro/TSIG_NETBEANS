@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.entity;
 
 import java.io.Serializable;
@@ -25,31 +20,41 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author vane
  */
 @Entity
-@Table(name = "zonas")
+@Table(name = "zona")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Zonas.findAll", query = "SELECT z FROM Zonas z"),
-    @NamedQuery(name = "Zonas.findByGidzona", query = "SELECT z FROM Zonas z WHERE z.gidzona = :gidzona"),
-    @NamedQuery(name = "Zonas.findByNombre", query = "SELECT z FROM Zonas z WHERE z.nombre = :nombre")})
-public class Zonas implements Serializable {
+    @NamedQuery(name = "Zona.findAll", query = "SELECT z FROM Zona z"),
+    @NamedQuery(name = "Zona.findByGidzona", query = "SELECT z FROM Zona z WHERE z.gidzona = :gidzona"),
+    @NamedQuery(name = "Zona.findByNombre", query = "SELECT z FROM Zona z WHERE z.nombre_zona = :nombre")})
+public class Zona implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "gidzona")
     private Integer gidzona;
-    @Size(max = 20)
-    @Column(name = "nombre")
-    private String nombre;
+    @Size(max = 50)
+    @Column(name = "nombre_zona")
+    private String nombre_zona;
+    @Size(max = 250)
+    @Column(name = "descripcion_zona")
+    private String descripcion_zona;
+    
+    @Size(max = 1)
+    @Column(name = "demanada")
+    private String demanda;
+    
+    
     @OneToMany(mappedBy = "gidzona")
     private Collection<Demanda> demandaCollection;
     @OneToMany(mappedBy = "gidzona")
     private Collection<Inmueble> inmuebleCollection;
 
-    public Zonas() {
+    public Zona() {
     }
 
-    public Zonas(Integer gidzona) {
+    // gid zona
+    public Zona(Integer gidzona) {
         this.gidzona = gidzona;
     }
 
@@ -61,31 +66,50 @@ public class Zonas implements Serializable {
         this.gidzona = gidzona;
     }
 
-    public String getNombre() {
-        return nombre;
+    // nombre_Zona
+    public String getNombre_Zona() {
+        return nombre_zona;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre_Zona(String nombre) {
+        this.nombre_zona = nombre;
+    }
+    
+    // descripcion
+    public String getDescripcion_Zona() {
+        return nombre_zona;
     }
 
-    @XmlTransient
+    public void setDescripcion_Zona(String nombre) {
+        this.descripcion_zona = nombre;
+    }
+
+    // descripcion
+    public String getDemanda() {
+        return demanda;
+    }
+
+    public void setDemanda(String demanda) {
+        this.demanda = demanda;
+    }
+    
+    /*@XmlTransient
     public Collection<Demanda> getDemandaCollection() {
         return demandaCollection;
     }
 
     public void setDemandaCollection(Collection<Demanda> demandaCollection) {
         this.demandaCollection = demandaCollection;
-    }
+    }*/
 
-    @XmlTransient
+    /*@XmlTransient
     public Collection<Inmueble> getInmuebleCollection() {
         return inmuebleCollection;
     }
 
     public void setInmuebleCollection(Collection<Inmueble> inmuebleCollection) {
         this.inmuebleCollection = inmuebleCollection;
-    }
+    }*/
 
     @Override
     public int hashCode() {
@@ -97,10 +121,10 @@ public class Zonas implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Zonas)) {
+        if (!(object instanceof Zona)) {
             return false;
         }
-        Zonas other = (Zonas) object;
+        Zona other = (Zona) object;
         if ((this.gidzona == null && other.gidzona != null) || (this.gidzona != null && !this.gidzona.equals(other.gidzona))) {
             return false;
         }
@@ -109,7 +133,7 @@ public class Zonas implements Serializable {
 
     @Override
     public String toString() {
-        return "com.entity.Zonas[ gidzona=" + gidzona + " ]";
+        return "com.entity.Zona[ gidzona=" + gidzona + " ]";
     }
     
 }

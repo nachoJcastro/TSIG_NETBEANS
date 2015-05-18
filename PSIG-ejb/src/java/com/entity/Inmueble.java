@@ -93,7 +93,7 @@ public class Inmueble implements Serializable {
     private Collection<Consulta> consultaCollection;
     @JoinColumn(name = "gidzona", referencedColumnName = "gidzona")
     @ManyToOne
-    private Zonas gidzona;
+    private Zona gidzona;
     @JoinColumn(name = "id_propietario", referencedColumnName = "id_propietario")
     @ManyToOne
     private Propietario idPropietario;
@@ -122,7 +122,7 @@ public class Inmueble implements Serializable {
         this.jardin = jardin;
         this.descripcion = descripcion;
         this.titulo = titulo;
-        this.gidzona = (Zonas) gidzona;
+        this.gidzona = (Zona) gidzona;
         this.idAdmin = (Administrador) idAdmin;                
     }
     
@@ -270,11 +270,11 @@ public class Inmueble implements Serializable {
         this.consultaCollection = consultaCollection;
     }
 
-    public Zonas getGidzona() {
+    public Zona getGidzona() {
         return gidzona;
     }
 
-    public void setGidzona(Zonas gidzona) {
+    public void setGidzona(Zona gidzona) {
         this.gidzona = gidzona;
     }
 

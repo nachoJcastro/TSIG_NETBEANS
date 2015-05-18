@@ -45,7 +45,7 @@ public class Demanda implements Serializable {
     private Date fecha;
     @JoinColumn(name = "gidzona", referencedColumnName = "gidzona")
     @ManyToOne
-    private Zonas gidzona;
+    private Zona gidzona;
 
     public Demanda() {
     }
@@ -70,11 +70,11 @@ public class Demanda implements Serializable {
         this.fecha = fecha;
     }
 
-    public Zonas getGidzona() {
+    public Zona getGidzona() {
         return gidzona;
     }
 
-    public void setGidzona(Zonas gidzona) {
+    public void setGidzona(Zona gidzona) {
         this.gidzona = gidzona;
     }
 
