@@ -48,26 +48,26 @@ public class Administrador implements Serializable {
     private Integer idAdmin;
     @Size(max = 20)
     @Column(name = "login")
-    private String login;
+    public String login;
     @Size(max = 15)
     @Column(name = "clave")
-    private String clave;
+    public String clave;
     @Size(max = 30)
     @Column(name = "nombre")
-    private String nombre;
+    public String nombre;
     @Size(max = 30)
     @Column(name = "apellido")
-    private String apellido;
+    public String apellido;
     @Column(name = "cedula")
-    private Integer cedula;
+    public Integer cedula;
     @Column(name = "telefono")
-    private Integer telefono;
+    public Integer telefono;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Size(max = 30)
     @Column(name = "email")
-    private String email;
+    public String email;
     @Column(name = "rol")
-    private Boolean rol;
+    public Boolean rol;
     @OneToMany(mappedBy = "idAdmin")
     private Collection<Inmueble> inmuebleCollection;
 
