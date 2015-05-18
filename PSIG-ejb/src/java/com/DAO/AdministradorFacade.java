@@ -8,6 +8,7 @@ package com.DAO;
 import com.entity.Administrador;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.EJBTransactionRolledbackException;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -46,13 +47,17 @@ public class AdministradorFacade extends AbstractFacade<Administrador> implement
     @Override
     public Administrador findadm(String login){
         List<Administrador> todosadm = findAll();
-        
-        for(int i=0;i< todosadm.size();i++){
+      try{
+          for(int i=0;i< todosadm.size();i++){
             Administrador adm = (Administrador) todosadm.get(i);
             if(login.equals(adm.getLogin())){  //busco si tiene el mismo login y si es asi lo retorno                
                  return adm;
             }
-        }       
+        } 
+      }
+      catch (Exception e){
+           System.err.println("Error: " + e.getMessage());
+      }        
         return null;
     }
     

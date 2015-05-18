@@ -59,26 +59,31 @@ public class Login {
         boolean estaLogueado;
         estaLogueado = false;
         String msg = "";
-        
-        if(AdmL.login(nick, password))
-        {
-            httpServletRequest.getSession().setAttribute("nick", nick);
-            httpServletRequest.getSession().setAttribute("nombre", AdmL.findadm(nick).getNombre());
-            facesMessage=new FacesMessage(FacesMessage.SEVERITY_INFO,"Acceso correcto",null);
-            facesContext.addMessage(null, facesMessage);
-            estaLogueado = true;
-            return "admin";
-        }
-        else
-        {
-            estaLogueado= false;
-            facesMessage=new FacesMessage(FacesMessage.SEVERITY_INFO,"Usuario o contraseña invalido",null);
-            facesContext.addMessage(null, facesMessage);
-            
-            return "login";
+        String retorno=null;
+        try {
+            if(AdmL.login(nick, password))
+            {
+                httpServletRequest.getSession().setAttribute("nick", nick);
+                httpServletRequest.getSession().setAttribute("nombre", AdmL.findadm(nick).getNombre());
+                facesMessage=new FacesMessage(FacesMessage.SEVERITY_INFO,"Acceso correcto",null);
+                facesContext.addMessage(null, facesMessage);
+                estaLogueado = true;
+                retorno= "admin";
+            }
+            else
+            {
+                estaLogueado= false;
+                facesMessage=new FacesMessage(FacesMessage.SEVERITY_INFO,"Usuario o contraseña invalido",null);
+                facesContext.addMessage(null, facesMessage);
 
-        }
+                retorno= "login";
 
+            }
+        }
+         catch (Exception e){
+           System.err.println("Error: " + e.getMessage());
+      }
+        return retorno;
     }
     
     
