@@ -7,6 +7,7 @@ package com.bean;
 
 import com.logica.AdministradorL;
 import java.io.IOException;
+import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -20,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @ManagedBean(name="loginBean")
 @SessionScoped
-public class Login {
+public class Login{
 
     private String password;
     private String nick;
@@ -55,35 +56,29 @@ public class Login {
     }
     
     public String checkLogin(){
-        
+        System.err.println("Entre checklogin");
         boolean estaLogueado;
         estaLogueado = false;
-        String msg = "";
-        String retorno=null;
-        try {
+        //String msg = "";
+        //String retorno=null;
+        
             if(AdmL.login(nick, password))
             {
+                System.err.println("Entre if login");
                 httpServletRequest.getSession().setAttribute("nick", nick);
                 httpServletRequest.getSession().setAttribute("nombre", AdmL.findadm(nick).getNombre());
                 facesMessage=new FacesMessage(FacesMessage.SEVERITY_INFO,"Acceso correcto",null);
                 facesContext.addMessage(null, facesMessage);
                 estaLogueado = true;
-                retorno= "admin";
+                return "admin";
             }
             else
-            {
+            {   System.err.println("Entre else login");
                 estaLogueado= false;
-                facesMessage=new FacesMessage(FacesMessage.SEVERITY_INFO,"Usuario o contraseña invalido",null);
+                facesMessage=new FacesMessage(FacesMessage.SEVERITY_ERROR,"Usuario o contraseña invalido",null);
                 facesContext.addMessage(null, facesMessage);
-
-                retorno= "login";
-
+                return "login";
             }
-        }
-         catch (Exception e){
-           System.err.println("Error: " + e.getMessage());
-      }
-        return retorno;
     }
     
     
