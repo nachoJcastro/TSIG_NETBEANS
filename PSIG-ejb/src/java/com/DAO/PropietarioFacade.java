@@ -29,11 +29,13 @@ public class PropietarioFacade extends AbstractFacade<Propietario> implements Pr
         super(Propietario.class);
     }
     
-    public boolean crearPropietario(Propietario prop){
-        em.persist(prop);
+    public boolean crearAdministrador(Propietario prop){
+        Propietario pro = new Propietario(prop.getNombre(),prop.getApellido(), prop.getTelefono(), prop.getEmail(), prop.getCi());
+        em.persist(pro);
         return true;
      }
     
+    @Override
     public boolean editarPropietario(Propietario prop){
         em.merge(prop);
         return true;
@@ -60,4 +62,9 @@ public class PropietarioFacade extends AbstractFacade<Propietario> implements Pr
     }
     
     //revisar si falta algo
+
+    @Override
+    public boolean crearPropietario(Propietario propietario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

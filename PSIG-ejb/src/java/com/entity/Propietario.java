@@ -45,24 +45,32 @@ public class Propietario implements Serializable {
     private Integer idPropietario;
     @Size(max = 30)
     @Column(name = "nombre")
-    private String nombre;
+    public String nombre;
     @Size(max = 30)
     @Column(name = "apellido")
-    private String apellido;
+    public String apellido;
     @Column(name = "telefono")
-    private Integer telefono;
+    public Integer telefono;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Size(max = 30)
     @Column(name = "email")
-    private String email;
+    public String email;
     @Column(name = "ci")
-    private Integer ci;
+    public Integer ci;
     @OneToMany(mappedBy = "idPropietario")
     private Collection<Inmueble> inmuebleCollection;
 
     public Propietario() {
     }
 
+    public Propietario(String nombre,String apellido,Integer telefono,String email,Integer ci){
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+        this.email = email;
+        this.ci = ci;
+    }
+        
     public Propietario(Integer idPropietario) {
         this.idPropietario = idPropietario;
     }

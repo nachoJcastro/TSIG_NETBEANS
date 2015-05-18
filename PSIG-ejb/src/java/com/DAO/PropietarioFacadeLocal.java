@@ -30,4 +30,8 @@ public interface PropietarioFacadeLocal {
 
     int count();
     
+    boolean crearPropietario(Propietario propietario);
+    
+    boolean editarPropietario(Propietario propietario);
+    
 }
