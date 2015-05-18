@@ -7,7 +7,9 @@ package com.bean;
 
 import com.entity.Administrador;
 import com.logica.AdministradorL;
+import java.util.List;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
@@ -27,7 +29,7 @@ public class AltaAdministrador {
     private int telefono;
     private String email;
     private boolean rol;
-    
+    private FacesMessage facesMessage;
     
     @EJB
     private AdministradorL AdmL;
@@ -35,11 +37,26 @@ public class AltaAdministrador {
     
     public AltaAdministrador(){
     }
+
+    public void crearAdministrador(){
+        if(AdmL.crearAdministrador(login, clave, nombre, apellido, cedula, telefono, email, rol))
+        {
+            facesMessage= new FacesMessage(FacesMessage.SEVERITY_INFO,"El usuario se creo correctamente",null);
+            this.adm = new Administrador();
+        }
+        else
+        {
+            facesMessage= new FacesMessage(FacesMessage.SEVERITY_ERROR,"Error al crear usuario",null);
+        }
+  
+    }
     
-    public boolean crearAdministrador(){
-                
-        AdmL.crearAdministrador(login, clave, nombre, apellido, cedula, telefono, email, rol);
-        return true;
+    public List<Administrador> listarAdministradores(){
+        return AdmL.listarAdministradores();
+    }
+    
+    public void editarAdministrador(){
+        
     }
     
     public boolean loginadm(){
@@ -47,8 +64,20 @@ public class AltaAdministrador {
         //return AdmL.login("vanecas","1");    
     }
     
-    public boolean editAdministrador(String login,String clave,String nombre,String apellido,int cedula,int telefono,String email,boolean rol){
-        return AdmL.editAdministrador(login, clave, nombre, apellido, cedula, telefono, email, rol);
+    public String editAdministrador(Administrador admin){
+        this.adm = admin;
+        return "EditarAdministrador";
+    }
+    
+    public void editAdministrador(){
+        if(AdmL.editAdministrador(adm))
+        {
+            facesMessage= new FacesMessage(FacesMessage.SEVERITY_INFO,"El usuario se creo correctamente",null);
+        }
+        else
+        {
+            facesMessage= new FacesMessage(FacesMessage.SEVERITY_ERROR,"Error al crear usuario",null);
+        }
     }
         
     
@@ -114,5 +143,13 @@ public class AltaAdministrador {
 
     public void setRol(Boolean rol) {
         this.rol = rol;
+    }
+    
+    public Administrador getAdm() {
+        return adm;
+    }
+
+    public void setAdm(Administrador adm) {
+        this.adm = adm;
     }
 }

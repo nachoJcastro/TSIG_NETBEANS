@@ -5,6 +5,16 @@
     margin-top: 70px !important;
     margin-left: 170px !important;
 }
+
+.msjError{
+    color:red;
+    list-style: none;
+}
+
+.msjSuccess{
+    color:limegreen;
+    list-style: none;
+}
 /*
 .side-menu {
   position: fixed !important;

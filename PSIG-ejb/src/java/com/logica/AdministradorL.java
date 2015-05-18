@@ -7,6 +7,7 @@ package com.logica;
 
 import com.DAO.AdministradorFacadeLocal;
 import com.entity.Administrador;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -35,17 +36,22 @@ public class AdministradorL {
         return admfacadelocal.crearAdministrador(adm);        
     }
     
-    public boolean editAdministrador(String login,String clave,String nombre,String apellido,int cedula,int telefono,String email,boolean rol){
-        Administrador adm = findadm(login);  
-        adm.setLogin(login);
-        adm.setClave(clave);
-        adm.setNombre(nombre);
-        adm.setApellido(apellido);
-        adm.setCedula(cedula);
-        adm.setTelefono(telefono);
-        adm.setEmail(email);
-        adm.setRol(rol);
+    //public boolean editAdministrador(String login,String clave,String nombre,String apellido,int cedula,int telefono,String email,boolean rol){
+    public boolean editAdministrador(Administrador admin){
+        Administrador adm = findadm(admin.login);  
+        adm.setLogin(admin.login);
+        adm.setClave(admin.clave);
+        adm.setNombre(admin.nombre);
+        adm.setApellido(admin.apellido);
+        adm.setCedula(admin.cedula);
+        adm.setTelefono(admin.telefono);
+        adm.setEmail(admin.email);
+        adm.setRol(admin.rol);
         return admfacadelocal.editAdministrador(adm);
+    }
+    
+    public List<Administrador> listarAdministradores(){
+        return admfacadelocal.findAll();
     }
     
     public Administrador findadm(String login){
@@ -57,5 +63,7 @@ public class AdministradorL {
     public boolean login(String login, String clave){
         return admfacadelocal.login(login, clave);
     }
+    
+    
     
 }

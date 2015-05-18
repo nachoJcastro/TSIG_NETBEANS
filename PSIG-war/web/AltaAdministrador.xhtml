@@ -14,9 +14,10 @@
                 <br />
                 <div class="panel with-nav-tabs panel-primary">
                       <div class="panel-heading">
-                          Alta Administrador
+                          <h3>Alta Administrador</h3>
                       </div>
                       <div class="panel-body">
+                            <h:messages errorClass="msjError" infoClass="msjSuccess" />
                             <h:form class="form-horizontal">
                             <h:outputLabel value="login"></h:outputLabel>
                             <h:inputText class="form-control" value="#{altaAdministrador.login}" id="login"></h:inputText>
@@ -35,8 +36,8 @@
                             <h:outputLabel value="rol"></h:outputLabel>
                             <h:inputText class="form-control" value="#{altaAdministrador.rol}" id="rol"></h:inputText>
 
-                            <h:commandButton class="btn btn-primary" action="#{altaAdministrador.crearAdministrador}" value="registrar administrador"></h:commandButton>
-
+                            <h:commandButton class="btn btn-success" action="#{altaAdministrador.crearAdministrador}" value="Crear"></h:commandButton>
+                            
                         </h:form>
                       </div>
                 </div>

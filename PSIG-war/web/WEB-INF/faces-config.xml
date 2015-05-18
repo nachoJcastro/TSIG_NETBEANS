@@ -14,5 +14,41 @@
         <managed-bean-class>com.bean.AltaAdministrador</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
+    
+    <navigation-rule>
+        <from-view-id>ListarAdministrador.xhtml</from-view-id>
+        <navigation-case>
+                <from-outcome>EditarAdministrador</from-outcome>
+                <to-view-id>EditarAdministrador.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>ListarAdministrador.xhtml</from-view-id>
+        <navigation-case>
+                <from-outcome>logout</from-outcome>
+                <to-view-id>logout.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>EditarAdministrador.xhtml</from-view-id>
+        <navigation-case>
+                <from-outcome>logout</from-outcome>
+                <to-view-id>logout.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>ListarAdministrador.xhtml</from-view-id>
+        <navigation-case>
+                <from-outcome>logout</from-outcome>
+                <to-view-id>logout.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>login.xhtml</from-view-id>
+        <navigation-case>
+                <from-outcome>admin</from-outcome>
+                <to-view-id>admin.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 
 </faces-config>
