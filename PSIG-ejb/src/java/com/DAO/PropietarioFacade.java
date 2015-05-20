@@ -29,7 +29,8 @@ public class PropietarioFacade extends AbstractFacade<Propietario> implements Pr
         super(Propietario.class);
     }
     
-    public boolean crearAdministrador(Propietario prop){
+    @Override
+    public boolean crearPropietario(Propietario prop){
         Propietario pro = new Propietario(prop.getNombre(),prop.getApellido(), prop.getTelefono(), prop.getEmail(), prop.getCi());
         em.persist(pro);
         return true;
@@ -48,12 +49,12 @@ public class PropietarioFacade extends AbstractFacade<Propietario> implements Pr
         return getEntityManager().createQuery(query).getResultList();                
     }
     
-    public Propietario findPropietario(int idProp){
+    public Propietario findPropietario(int ci){
         List<Propietario> allprop = findAll();                     
         
         for(int i=0;i< allprop.size()-1;i++){
             Propietario prop = (Propietario) allprop.get(i);
-            if(idProp == prop.getIdPropietario()){
+            if(ci == prop.getCi()){
                 //busco si tiene el mismo login y si es asi lo retorno
                 return prop;
             } 
@@ -61,10 +62,6 @@ public class PropietarioFacade extends AbstractFacade<Propietario> implements Pr
         return null;
     }
     
-    //revisar si falta algo
 
-    @Override
-    public boolean crearPropietario(Propietario propietario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
 }

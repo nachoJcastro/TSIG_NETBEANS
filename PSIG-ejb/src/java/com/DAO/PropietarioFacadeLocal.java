@@ -34,4 +34,6 @@ public interface PropietarioFacadeLocal {
     
     boolean editarPropietario(Propietario propietario);
     
+    Propietario findPropietario(int ci);
+    
 }

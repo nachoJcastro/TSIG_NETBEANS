@@ -36,12 +36,13 @@ public class PropietarioL {
     }
     
      
-    public boolean editAdministrador(Propietario prop){
-        Propietario pro = findProp(prop.nombre);
-        pro.setApellido(prop.apellido);
-        pro.setTelefono(prop.telefono);
-        pro.setEmail(prop.email);
-        pro.setCi(prop.ci);
+    public boolean editPropietario(Propietario prop){
+        Propietario pro = findProp(prop.getCi());
+        pro.setNombre(prop.getNombre());
+        pro.setApellido(prop.getApellido());
+        pro.setTelefono(prop.getTelefono());
+        pro.setEmail(prop.getEmail());
+        pro.setCi(prop.getCi());
 
         return propFacadeLocal.editarPropietario(prop);
     }
@@ -50,8 +51,8 @@ public class PropietarioL {
         return propFacadeLocal.findAll();
     }
     
-    public Propietario findProp(String id){
-        return propFacadeLocal.find(id);
+    public Propietario findProp(int ci){
+        return propFacadeLocal.find(ci);
     }
     
     
