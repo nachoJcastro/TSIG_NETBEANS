@@ -15,6 +15,12 @@
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     
+    <managed-bean>
+        <managed-bean-name>altaPropietario</managed-bean-name>
+        <managed-bean-class>com.bean.AltaPropietario</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
     <navigation-rule>
         <from-view-id>/login.xhtml</from-view-id>
         <navigation-case>
@@ -23,7 +29,6 @@
             <to-view-id>/admin.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
-    
     <navigation-rule>
         <from-view-id>/LayoutAdmin.xhtml</from-view-id>
         <navigation-case>
@@ -32,5 +37,32 @@
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
-    
+    <navigation-rule>
+        <from-view-id>/AltaPropietario.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>ListaPropietarios</from-outcome>
+            <to-view-id>/ListaPropietarios.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/EditarPropietario.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>ListaPropietarios</from-outcome>
+            <to-view-id>/ListaPropietarios.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/AltaAdministrador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>ListarAdministradores</from-outcome>
+            <to-view-id>/ListarAdministradores.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/EditarAdministrador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>ListarAdministradores</from-outcome>
+            <to-view-id>/ListarAdministradores.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>

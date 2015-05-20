@@ -11,6 +11,7 @@ import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -35,15 +36,20 @@ public class AltaPropietario {
     public AltaPropietario() {
     }
     
-    public void crearPropietario(){
+    public String crearPropietario(){
+        
         if(propL.crearPropietario(nombre, apellido, telefono, email, ci))
         {
-            facesMessage= new FacesMessage(FacesMessage.SEVERITY_INFO,"El propietario se creo correctamente",null);
+            //facesMessage= new FacesMessage(FacesMessage.SEVERITY_INFO,"El propietario se creo correctamente",null);
             this.prop = new Propietario();
+            return "ListaPropietarios";
         }
         else
         {
+            FacesContext contexto = FacesContext.getCurrentInstance();
             facesMessage= new FacesMessage(FacesMessage.SEVERITY_ERROR,"Error al crear propietario",null);
+            contexto.addMessage(null, facesMessage);
+            return "AltaPropietario";
         }
   
     }
@@ -52,24 +58,21 @@ public class AltaPropietario {
         return propL.listarPropietarios();
     }
     
-    public void editarPropietario(){
-        
-    }
-    
-    
     public String editPropietario(Propietario propietario){
         this.prop = propietario;
         return "EditarPropietario";
     }
     
-    public void editPropietario(){
-        if(propL.editAdministrador(prop))
+    public String editPropietario(){
+        if(propL.editPropietario(prop))
         {
             facesMessage= new FacesMessage(FacesMessage.SEVERITY_INFO,"El propietario se edito correctamente",null);
+            return "ListarPropietario";
         }
         else
         {
             facesMessage= new FacesMessage(FacesMessage.SEVERITY_ERROR,"Error al editar propietario",null);
+            return "EditarPropietario";
         }
     }
         

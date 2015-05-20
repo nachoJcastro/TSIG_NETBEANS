@@ -47,14 +47,16 @@
                     <ul class="nav navbar-right top-nav">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <h:messages />
                                 <h:outputLabel value="Bienvendo! " />
                                 <h:outputText value="#{loginBean.usuarioSession}" />
 
                             </a>
                             <ul class="dropdown-menu">
                                 <li><h:form>
-                                    <h:commandLink action="#{sesionBean.cerrarSesion}" value="Cerrar sesion" />
+                                        <h:commandLink action="#{sesionBean.cerrarSesion}">
+                                            <span class="fa fa-sign-out"></span>
+                                            Cerrar Sesion
+                                        </h:commandLink>
                                 </h:form></li>
                             </ul>
                         </li>
@@ -71,7 +73,12 @@
                             </h:link>
                         </li>
                         <li><a href="#"><i class="fa fa-list"></i> Lista Inmuebles</a></li>
-                        <li><a href="#"><i class="fa fa-list"></i> Lista Clientes</a></li>
+                        <li>
+                            <h:link outcome="/ListaPropietarios">
+                                <i class="fa fa-list"></i>
+                                Lista Propietario
+                            </h:link>
+                        </li>
                         <li><!--<a href="/AltaAdministrador"><i class="fa fa-plus-square"></i> Alta Administrador</a>-->
                             <h:link outcome="/AltaAdministrador">
                                 <i class="fa fa-plus-square"></i>
@@ -79,7 +86,12 @@
                             </h:link>
                         </li>
                         <li><a href="#"><i class="fa fa-plus-square"></i> Alta Inmuebles</a></li>
-                        <li><a href="#"><i class="fa fa-plus-square"></i> Alta Clientes</a></li> 
+                        <li>
+                            <h:link outcome="/AltaPropietario">
+                                <i class="fa fa-plus-square"></i>
+                                Alta Propietario
+                            </h:link>
+                        </li> 
                         <li><a href="#"><i class="fa fa-file"></i> Reportes</a></li>
                     </ul>
                 </div>

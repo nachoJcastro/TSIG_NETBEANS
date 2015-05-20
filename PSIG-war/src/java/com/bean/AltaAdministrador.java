@@ -31,6 +31,7 @@ public class AltaAdministrador {
     private int telefono;
     private String email;
     private boolean rol;
+    private final FacesContext facesContext;
     private FacesMessage facesMessage;
     
     @EJB
@@ -38,17 +39,22 @@ public class AltaAdministrador {
     private Administrador adm;
     
     public AltaAdministrador(){
+        facesContext = FacesContext.getCurrentInstance();
     }
 
-    public void crearAdministrador(){
+    public String crearAdministrador(){
         if(AdmL.crearAdministrador(login, clave, nombre, apellido, cedula, telefono, email, rol))
         {
-            facesMessage= new FacesMessage(FacesMessage.SEVERITY_INFO,"El usuario se creo correctamente",null);
+            //facesMessage= new FacesMessage(FacesMessage.SEVERITY_INFO,"El usuario se creo correctamente",null);
             this.adm = new Administrador();
+            return "ListarAdministradores";
         }
         else
         {
+            
             facesMessage= new FacesMessage(FacesMessage.SEVERITY_ERROR,"Error al crear usuario",null);
+            FacesContext.getCurrentInstance().addMessage(null,facesMessage);
+            return "AltaAdministrador";
         }
   
     }
@@ -57,28 +63,28 @@ public class AltaAdministrador {
         return AdmL.listarAdministradores();
     }
     
-    public void editarAdministrador(){
-        
-    }
-    
-    public boolean loginadm(){
+   /* public boolean loginadm(){
         return AdmL.login(adm.getLogin(),adm.getClave());    
         //return AdmL.login("vanecas","1");    
-    }
+    }*/
     
     public String editAdministrador(Administrador admin){
         this.adm = admin;
         return "EditarAdministrador";
     }
     
-    public void editAdministrador(){
+    public String editAdministrador(){
+        
         if(AdmL.editAdministrador(adm))
         {
-            facesMessage= new FacesMessage(FacesMessage.SEVERITY_INFO,"El usuario se creo correctamente",null);
+            facesMessage= new FacesMessage(FacesMessage.SEVERITY_INFO,"El usuario se edito correctamente",null);
+            return "ListarAdministradores";
         }
         else
         {
-            facesMessage= new FacesMessage(FacesMessage.SEVERITY_ERROR,"Error al crear usuario",null);
+            facesMessage= new FacesMessage(FacesMessage.SEVERITY_ERROR,"Error al editar usuario",null);
+            FacesContext.getCurrentInstance().addMessage(null,facesMessage);
+            return "EditarAdministrador";
         }
     }
         
