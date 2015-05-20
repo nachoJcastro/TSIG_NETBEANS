@@ -38,12 +38,12 @@ public class AltaPropietario {
     public void crearPropietario(){
         if(propL.crearPropietario(nombre, apellido, telefono, email, ci))
         {
-            facesMessage= new FacesMessage(FacesMessage.SEVERITY_INFO,"El usuario se creo correctamente",null);
+            facesMessage= new FacesMessage(FacesMessage.SEVERITY_INFO,"El propietario se creo correctamente",null);
             this.prop = new Propietario();
         }
         else
         {
-            facesMessage= new FacesMessage(FacesMessage.SEVERITY_ERROR,"Error al crear usuario",null);
+            facesMessage= new FacesMessage(FacesMessage.SEVERITY_ERROR,"Error al crear propietario",null);
         }
   
     }
@@ -65,11 +65,11 @@ public class AltaPropietario {
     public void editPropietario(){
         if(propL.editAdministrador(prop))
         {
-            facesMessage= new FacesMessage(FacesMessage.SEVERITY_INFO,"El usuario se creo correctamente",null);
+            facesMessage= new FacesMessage(FacesMessage.SEVERITY_INFO,"El propietario se edito correctamente",null);
         }
         else
         {
-            facesMessage= new FacesMessage(FacesMessage.SEVERITY_ERROR,"Error al crear usuario",null);
+            facesMessage= new FacesMessage(FacesMessage.SEVERITY_ERROR,"Error al editar propietario",null);
         }
     }
         

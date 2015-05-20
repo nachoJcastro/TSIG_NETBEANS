@@ -6,12 +6,11 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        
+
         <h:outputStylesheet name="css/bootstrap.css" />
-        <h:outputStylesheet name="css/bootstrap-theme.min.css" />
         <h:outputScript name="js/jquery.js" />
         <h:outputScript name="js/bootstrap.js" />
-        <title>how to use bootstrap css in JSF</title>
+        <title>Inmobiliaria</title>
     </h:head>
     <h:body>  
         <div class="navbar navbar-inverse" role="navigation">
@@ -30,16 +29,16 @@
                       <li><h:link outcome="/AltaAdministrador" value="Alta Administrador"/></li>
                     </ul>-->
                     <ul class="nav navbar-nav navbar-right">
-                        <li><h:link outcome="/admin" value="Admin"/></li>
+                        <!--<li><h:link outcome="/admin" value="Admin"/></li>-->
                         <li><h:link outcome="/login" value="LogIn"/></li>
                     </ul>
                     <!--<h:form class="navbar-form navbar-right" role="form">
                         <div class="form-group">
-                            <h:inputText h:placeholder="Nick" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <h:inputSecret h:placeholder="Password" class="form-control" />
-                        </div>
+                        <h:inputText h:placeholder="Nick" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <h:inputSecret h:placeholder="Password" class="form-control" />
+                    </div>
                         <h:commandButton type="submit" value="Login" action="{loginBean.checkLogin()}" class="btn btn-success"/>
                         <h:messages />
                     </h:form>-->
@@ -47,17 +46,20 @@
             </div>
         </div>
         <div class="container">
-            
+
             <div class="jumbotron">
                 <h1>Bienvenido a Imobiliaria!!!</h1>
             </div>
-          
+
         </div>
         <footer>
             <p>Company 2014</p>
         </footer>
 
+        <br />
+        
     </h:body>
+
 </html>
 
 

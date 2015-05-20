@@ -2,15 +2,14 @@
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
-        <Node id="ListarAdministrador.xhtml" x="650" y="300" zoom="true"/>
-        <Node id="login.xhtml" x="150" y="150" zoom="true"/>
-        <Node id="index.xhtml" x="650" y="150" zoom="true"/>
-        <Node id="logout.jsp" x="400" y="150" zoom="true"/>
-        <Node id="EditarAdministrador.xhtml" x="900" y="150" zoom="true"/>
-        <Node id="template/LayoutAdmin.xhtml" x="97" y="149" zoom="true"/>
-        <Node id="ListarAdministradores.xhtml" x="400" y="300" zoom="true"/>
-        <Node id="AltaAdministrador.xhtml" x="150" y="450" zoom="true"/>
-        <Node id="admin.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="alta_zona.xhtml" x="409" y="103" zoom="true"/>
+        <Node id="login.xhtml" x="420" y="241" zoom="true"/>
+        <Node id="index.xhtml" x="181" y="433" zoom="true"/>
+        <Node id="EditarAdministrador.xhtml" x="684" y="163" zoom="true"/>
+        <Node id="LayoutAdmin.xhtml" x="142" y="243" zoom="true"/>
+        <Node id="ListarAdministradores.xhtml" x="641" y="294" zoom="true"/>
+        <Node id="AltaAdministrador.xhtml" x="386" y="160" zoom="true"/>
+        <Node id="admin.xhtml" x="415" y="432" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>

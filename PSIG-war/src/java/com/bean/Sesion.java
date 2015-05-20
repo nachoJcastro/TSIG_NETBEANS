@@ -34,7 +34,7 @@ public class Sesion {
         }
     }
     
-    public String CerrarSesion()
+    public String cerrarSesion()
     {
         httpServletRequest.getSession().removeAttribute("nick");
         return "index";

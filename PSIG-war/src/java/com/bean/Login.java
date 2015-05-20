@@ -7,7 +7,8 @@ package com.bean;
 
 import com.logica.AdministradorL;
 import java.io.IOException;
-import java.io.Serializable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -32,11 +33,11 @@ public class Login{
     @EJB
     private AdministradorL AdmL;
     
-    public String getUsuario() {
+    public String getNick() {
         return nick;
     }
 
-    public void setUsuario(String nick) {
+    public void setNick(String nick) {
         this.nick = nick;
     }
         
@@ -51,87 +52,84 @@ public class Login{
     
     public Login ()
     { 
-        this.facesContext = FacesContext.getCurrentInstance();
-        this.httpServletRequest=(HttpServletRequest)facesContext.getExternalContext().getRequest();
+        facesContext = FacesContext.getCurrentInstance();
+        httpServletRequest=(HttpServletRequest)facesContext.getExternalContext().getRequest();
+    }
+    
+    public String getUsuarioSession()
+    {
+        HttpServletRequest prueba = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+        
+        
+        return  prueba.getSession().getAttribute("nick") +" - "+ prueba.getSession().getAttribute("nombre");
     }
     
     public String checkLogin(){
-        System.err.println("Entre checklogin");
-        boolean estaLogueado;
-        estaLogueado = false;
-        //String msg = "";
-        //String retorno=null;
         
-            if(AdmL.login(nick, password))
+            System.err.println("Entre checklogin");
+            boolean check = AdmL.login(nick, password);
+            System.err.println("entro:"+check);
+            HttpServletRequest prueba = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+            if(check)
             {
+                
+                prueba.getSession().setAttribute("nick", nick);
+                prueba.getSession().setAttribute("nombre", AdmL.findadm(nick).getNombre());
+
+                return "admin";
+            }
+            else
+            {
+                facesMessage=new FacesMessage(FacesMessage.SEVERITY_ERROR,"Usuario o contraseña invalido",null);
+                FacesContext.getCurrentInstance().addMessage(null,facesMessage);
+                return "login";
+            }
+            /*{
                 System.err.println("Entre if login");
                 httpServletRequest.getSession().setAttribute("nick", nick);
                 httpServletRequest.getSession().setAttribute("nombre", AdmL.findadm(nick).getNombre());
                 facesMessage=new FacesMessage(FacesMessage.SEVERITY_INFO,"Acceso correcto",null);
                 facesContext.addMessage(null, facesMessage);
-                estaLogueado = true;
                 return "admin";
             }
             else
             {   System.err.println("Entre else login");
-                estaLogueado= false;
                 facesMessage=new FacesMessage(FacesMessage.SEVERITY_ERROR,"Usuario o contraseña invalido",null);
                 facesContext.addMessage(null, facesMessage);
-                return "login";
-            }
+                return null;
+            }*/
     }
     
     
-        
-    
+   /* public void validarLogin()
+    {
+        AdmL = new AdministradorL();
 
-    
-    /*public void checkLogin(){
-        
-        boolean estaLogueado;
-        estaLogueado = false;
-        String msg = "";
-        
-        if(AdmL.login(nick, password))
-        {
-            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("nick", nick);
-            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("nombre", AdmL.findadm(nick).getNombre());
-            estaLogueado = true;
-      
-        }
-        else
-        {
-            estaLogueado= false;
-            FacesMessage fm = new FacesMessage("Usuario o contraseña invalido");
-            FacesContext.getCurrentInstance().addMessage("msg", fm);
+        if (AdmL.login(nick, password) ){
 
+            System.err.println("Entre if login");
+            httpServletRequest.getSession().setAttribute("nick", nick);
+            //httpServletRequest.getSession().setAttribute("nombre", AdmL.findadm(nick).getNombre());
+            facesMessage=new FacesMessage(FacesMessage.SEVERITY_INFO,"Acceso correcto",null);
+            facesContext.addMessage(null, facesMessage);
+            try {
+                facesContext.getExternalContext().redirect("admin");
+            } catch (IOException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        
-        if (estaLogueado == true ){
-                if (!AdmL.findadm(nick).getRol())
-                        try {
-                                msg = "Bienvenido "+AdmL.findadm(nick).getNombre().trim()+"!";
-                                FacesContext.getCurrentInstance().getExternalContext().redirect("index");
-                        } catch (IOException e) {
-                                // TODO Auto-generated catch block
-                                e.printStackTrace();
-                        }
-                else
-                        try {
-                                msg = "Bienvenido "+AdmL.findadm(nick).getNombre().trim()+"!";
-                                FacesMessage fm = new FacesMessage(msg);
-                                FacesContext.getCurrentInstance().addMessage("msg", fm);
-                                FacesContext.getCurrentInstance().getExternalContext().redirect("index");
-                        } catch (IOException e) {
-                                // TODO Auto-generated catch block
-                                e.printStackTrace();
-                        }
-             
+        else{
+                System.err.println("Entre else login");
+                facesMessage=new FacesMessage(FacesMessage.SEVERITY_ERROR,"Usuario o contraseña invalido",null);
+                facesContext.addMessage(null, facesMessage);
+            try {
+                facesContext.getExternalContext().redirect("login");
+            } catch (IOException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        
+
     }*/
-    
-    
-        
+
     
 }

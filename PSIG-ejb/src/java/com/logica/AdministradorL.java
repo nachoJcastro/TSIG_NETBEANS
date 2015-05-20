@@ -38,15 +38,15 @@ public class AdministradorL {
     
     //public boolean editAdministrador(String login,String clave,String nombre,String apellido,int cedula,int telefono,String email,boolean rol){
     public boolean editAdministrador(Administrador admin){
-        Administrador adm = findadm(admin.login);  
-        adm.setLogin(admin.login);
-        adm.setClave(admin.clave);
-        adm.setNombre(admin.nombre);
-        adm.setApellido(admin.apellido);
-        adm.setCedula(admin.cedula);
-        adm.setTelefono(admin.telefono);
-        adm.setEmail(admin.email);
-        adm.setRol(admin.rol);
+        Administrador adm = findadm(admin.getLogin());  
+        adm.setLogin(admin.getLogin());
+        adm.setClave(admin.getClave());
+        adm.setNombre(admin.getNombre());
+        adm.setApellido(admin.getApellido());
+        adm.setCedula(admin.getCedula());
+        adm.setTelefono(admin.getTelefono());
+        adm.setEmail(admin.getEmail());
+        adm.setRol(admin.getRol());
         return admfacadelocal.editAdministrador(adm);
     }
     

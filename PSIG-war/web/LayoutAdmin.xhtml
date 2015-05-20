@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' ?> 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html">
@@ -11,13 +11,12 @@
         
         <!--<h:outputStylesheet name="./css/default.css"/>
         <h:outputStylesheet name="./css/cssLayout.css"/>-->
-        <h:outputStylesheet name="./css/bootstrap.css" />
-        <h:outputStylesheet name="./css/bootstrap-theme.min.css" />
-        <h:outputStylesheet name="./css/font-awesome.css"/>
-        <h:outputStylesheet name="./css/admin.css"/>
-        <h:outputScript name="./js/jquery.js" />
-        <h:outputScript name="./js/bootstrap.js" />
-        <h:outputScript name="./js/admin.js" />
+        <h:outputStylesheet name="css/bootstrap.css" />
+        <h:outputStylesheet name="css/font-awesome.css"/>
+        <h:outputStylesheet name="css/admin.css"/>
+        <h:outputScript name="js/jquery.js" />
+        <h:outputScript name="js/bootstrap.js" />
+        <h:outputScript name="js/admin.js" />
         <title>Admin Panel - <ui:insert name="titulo">titulo</ui:insert></title>
     </h:head>
 
@@ -49,13 +48,16 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <h:messages />
-                                <h:outputLabel value="Bienvendo!" />
-                                <h:outputText value="#{sesionBean.usuario}" />
+                                <h:outputLabel value="Bienvendo! " />
+                                <h:outputText value="#{loginBean.usuarioSession}" />
 
                             </a>
                             <ul class="dropdown-menu">
-                                 <li><h:link outcome="/logout" value="Cerrar sesion"/></li>
-                            </ul></li>
+                                <li><h:form>
+                                    <h:commandLink action="#{sesionBean.cerrarSesion}" value="Cerrar sesion" />
+                                </h:form></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
 

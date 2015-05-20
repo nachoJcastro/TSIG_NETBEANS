@@ -8,7 +8,7 @@
     </h:head>
     <h:body>
         
-        <ui:composition template="./template/LayoutAdmin.xhtml">
+        <ui:composition template="LayoutAdmin.xhtml">
             <ui:define name="titulo">Alta Administrador</ui:define>
             <ui:define name="content">
                 <br />
@@ -17,8 +17,8 @@
                           <h3>Alta Administrador</h3>
                       </div>
                       <div class="panel-body">
-                            <h:messages errorClass="msjError" infoClass="msjSuccess" />
-                            <h:form class="form-horizontal">
+                        <h:messages errorClass="msjError" infoClass="msjSuccess" />
+                        <h:form class="form-horizontal">
                             <h:outputLabel value="login"></h:outputLabel>
                             <h:inputText class="form-control" value="#{altaAdministrador.login}" id="login"></h:inputText>
                             <h:outputLabel value="clave"></h:outputLabel>
@@ -38,7 +38,7 @@
 
                             <h:commandButton class="btn btn-success" action="#{altaAdministrador.crearAdministrador}" value="Crear"></h:commandButton>
                             
-                        </h:form>
+                       </h:form>
                       </div>
                 </div>
             </ui:define>

@@ -16,39 +16,21 @@
     </managed-bean>
     
     <navigation-rule>
-        <from-view-id>ListarAdministrador.xhtml</from-view-id>
+        <from-view-id>/login.xhtml</from-view-id>
         <navigation-case>
-                <from-outcome>EditarAdministrador</from-outcome>
-                <to-view-id>EditarAdministrador.xhtml</to-view-id>
+            <from-action>#{loginBean.checkLogin}</from-action>
+            <from-outcome>admin</from-outcome>
+            <to-view-id>/admin.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    
     <navigation-rule>
-        <from-view-id>ListarAdministrador.xhtml</from-view-id>
+        <from-view-id>/LayoutAdmin.xhtml</from-view-id>
         <navigation-case>
-                <from-outcome>logout</from-outcome>
-                <to-view-id>logout.jsp</to-view-id>
+            <from-action>#{sesionBean.cerrarSesion}</from-action>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
-    <navigation-rule>
-        <from-view-id>EditarAdministrador.xhtml</from-view-id>
-        <navigation-case>
-                <from-outcome>logout</from-outcome>
-                <to-view-id>logout.jsp</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>ListarAdministrador.xhtml</from-view-id>
-        <navigation-case>
-                <from-outcome>logout</from-outcome>
-                <to-view-id>logout.jsp</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>login.xhtml</from-view-id>
-        <navigation-case>
-                <from-outcome>admin</from-outcome>
-                <to-view-id>admin.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-
+    
 </faces-config>
