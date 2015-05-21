@@ -21,30 +21,30 @@
                       </div>
                       <div class="panel-body">
                         <h:form>
-                            <h:dataTable var="p" value="#{altaPropietario.listarPropietarios()}" class="table">
+                            <h:dataTable var="pa" value="#{altaPropietario.listarPropietarios()}" class="table">
                                 <h:column>
                                     <f:facet name="header">Id</f:facet>
-                                    <h:outputText value="#{p.idPropietario}"></h:outputText>  
+                                    <h:outputText value="#{pa.idPropietario}"></h:outputText>  
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">Nombre</f:facet>
-                                    <h:outputText value="#{p.nombre}"></h:outputText>  
+                                    <h:outputText value="#{pa.nombre}"></h:outputText>  
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">Apellido</f:facet>
-                                    <h:outputText value="#{p.apellido}"></h:outputText>  
+                                    <h:outputText value="#{pa.apellido}"></h:outputText>  
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">CI</f:facet>
-                                    <h:outputText value="#{p.ci}"></h:outputText>  
+                                    <h:outputText value="#{pa.ci}"></h:outputText>  
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">Email</f:facet>
-                                    <h:outputText value="#{p.email}"></h:outputText>  
+                                    <h:outputText value="#{pa.email}"></h:outputText>  
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">Acciones</f:facet>
-                                    <h:commandLink actionListener="#{altaPropietario.editPropietario(p)}" >
+                                    <h:commandLink actionListener="#{altaPropietario.editarPropietario(pa)}" >
                                         <i class="fa fa-pencil"></i>
                                     </h:commandLink>
                                 </h:column>

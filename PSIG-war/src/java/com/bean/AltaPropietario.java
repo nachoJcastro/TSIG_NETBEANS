@@ -42,7 +42,7 @@ public class AltaPropietario {
         {
             //facesMessage= new FacesMessage(FacesMessage.SEVERITY_INFO,"El propietario se creo correctamente",null);
             this.prop = new Propietario();
-            return "ListaPropietarios";
+            return "ListarPropietarios";
         }
         else
         {
@@ -58,20 +58,21 @@ public class AltaPropietario {
         return propL.listarPropietarios();
     }
     
-    public String editPropietario(Propietario propietario){
-        this.prop = propietario;
+    public String editarPropietario(Propietario pa){
+        this.prop = pa;
         return "EditarPropietario";
     }
     
-    public String editPropietario(){
+    public String editarPropietario(){
         if(propL.editPropietario(prop))
         {
-            facesMessage= new FacesMessage(FacesMessage.SEVERITY_INFO,"El propietario se edito correctamente",null);
-            return "ListarPropietario";
+            //facesMessage= new FacesMessage(FacesMessage.SEVERITY_INFO,"El propietario se edito correctamente",null);
+            return "ListarPropietarios";
         }
         else
-        {
+        {   FacesContext contexto = FacesContext.getCurrentInstance();
             facesMessage= new FacesMessage(FacesMessage.SEVERITY_ERROR,"Error al editar propietario",null);
+            contexto.addMessage(null, facesMessage);
             return "EditarPropietario";
         }
     }

@@ -22,10 +22,10 @@
                       <div class="panel-body">
                             <h:messages errorClass="msjError" infoClass="msjSuccess" />
                             <h:form class="form-horizontal">
+                                <h:outputLabel value="id"></h:outputLabel>
+                                <h:inputText class="form-control" readonly="true" value="#{altaAdministrador.adm.idAdmin}" id="id"></h:inputText>
                                 <h:outputLabel value="login"></h:outputLabel>
-                                <h:inputText class="form-control" readonly="true" value="#{altaAdministrador.adm.idAdmin}" id="clave"></h:inputText>
-                                <h:outputLabel value="login"></h:outputLabel>
-                                <h:inputText class="form-control" value="#{altaAdministrador.adm.login}" id="clave"></h:inputText>
+                                <h:inputText class="form-control" value="#{altaAdministrador.adm.login}" id="login"></h:inputText>
                                 <h:outputLabel value="clave"></h:outputLabel>
                                 <h:inputText class="form-control" value="#{altaAdministrador.adm.clave}" id="clave"></h:inputText>
                                 <h:outputLabel value="nombre"></h:outputLabel>

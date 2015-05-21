@@ -13,7 +13,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpServletRequest;
+
 
 /**
  *
@@ -39,6 +39,7 @@ public class AltaAdministrador {
     private Administrador adm;
     
     public AltaAdministrador(){
+        adm = new Administrador();
         facesContext = FacesContext.getCurrentInstance();
     }
 
