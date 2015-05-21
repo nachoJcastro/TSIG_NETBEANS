@@ -34,6 +34,7 @@ public class AltaPropietario {
 
     
     public AltaPropietario() {
+        prop = new Propietario();
     }
     
     public String crearPropietario(){

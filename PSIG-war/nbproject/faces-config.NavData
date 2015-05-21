@@ -11,8 +11,8 @@
         <Node id="EditarAdministrador.xhtml" x="106" y="246" zoom="true"/>
         <Node id="LayoutAdmin.xhtml" x="385" y="606" zoom="true"/>
         <Node id="ListarAdministradores.xhtml" x="23" y="135" zoom="true"/>
-        <Node id="ListaPropietarios.xhtml" x="667" y="291" zoom="true"/>
         <Node id="AltaAdministrador.xhtml" x="110" y="29" zoom="true"/>
+        <Node id="ListaPropietarios.xhtml" x="667" y="291" zoom="true"/>
         <Node id="admin.xhtml" x="415" y="422" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>

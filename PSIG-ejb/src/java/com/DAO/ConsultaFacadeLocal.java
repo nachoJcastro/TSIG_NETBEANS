@@ -30,4 +30,8 @@ public interface ConsultaFacadeLocal {
 
     int count();
     
+    boolean crearConsulta(Consulta consulta);
+    boolean editarConsulta(Consulta consulta);
+    Consulta findSegunId(int idC);
+    
 }

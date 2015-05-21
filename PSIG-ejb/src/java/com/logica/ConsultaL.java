@@ -5,6 +5,10 @@
  */
 package com.logica;
 
+import com.DAO.ConsultaFacadeLocal;
+import com.entity.Consulta;
+import java.util.List;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
 
@@ -16,6 +20,35 @@ import javax.ejb.LocalBean;
 @LocalBean
 public class ConsultaL {
 
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+    @EJB
+    private ConsultaFacadeLocal confacadelocal;
+    
+    public boolean crearConsulta(Consulta consulta){
+        Consulta con = new Consulta();
+        con.setNombre(consulta.getNombre());
+        con.setApellido(consulta.getApellido());
+        con.setTelefono(consulta.getTelefono());
+        con.setEmail(consulta.getEmail());
+        con.setDescripcion(consulta.getDescripcion());
+        return confacadelocal.crearConsulta(con);
+    }
+    
+    public boolean editarConsulta(Consulta consulta){
+        Consulta con = findSegunId(consulta.getIdConsulta());
+        con.setNombre(consulta.getNombre());
+        con.setApellido(consulta.getApellido());
+        con.setTelefono(consulta.getTelefono());
+        con.setEmail(consulta.getEmail());
+        con.setDescripcion(consulta.getDescripcion());
+        return confacadelocal.editarConsulta(con);
+    }
+    
+    public List<Consulta> listarConsultas(){
+        return confacadelocal.findAll();
+    }
+    
+    public Consulta findSegunId(int idC){
+        return confacadelocal.findSegunId(idC);
+    }
+    
 }

@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 
     <body>
 
@@ -16,10 +17,67 @@
                 <br />
                 <div class="panel with-nav-tabs panel-primary">
                       <div class="panel-heading">
-                          <h3>Editar Administrador</h3>
+                          <h3>Alta Inmueble</h3>
                       </div>
                       <div class="panel-body">
-
+                           <h:messages errorClass="msjError" infoClass="msjSuccess" />
+                        <h:form class="form-horizontal">
+                            
+                            <!--
+                                    private String proposito;
+                                    private String estado;
+                                    private Integer tipo;
+                                    private Double valormin;
+                                    private Double valormax;
+                                    private String direccion;
+                                    private Integer padron;
+                                    private Integer banios;
+                                    private Integer habitaciones;
+                                    private Integer pisos;
+                                    private Boolean garage;
+                                    private Boolean jardin;
+                                    private String descripcion;
+                                    private String titulo;
+                            
+                            -->
+                            <h:outputLabel value="proposito"></h:outputLabel>
+                            <h:inputText class="form-control" value="#{altaInmueble.proposito}" id="proposito"></h:inputText>
+                            <h:outputLabel value="estado"></h:outputLabel>
+                            <h:inputText class="form-control" value="#{altaInmueble.estado}" id="estado"></h:inputText>
+                            <h:outputLabel value="tipo"></h:outputLabel>
+                            <h:inputText class="form-control" value="#{altaInmueble.tipo}" id="tipo"></h:inputText>
+                            <h:outputLabel value="valormax"></h:outputLabel>
+                            <h:inputText class="form-control" value="#{altaInmueble.valormax}" id="valormax"></h:inputText>
+                            <h:outputLabel value="valormin"></h:outputLabel>
+                            <h:inputText class="form-control" value="#{altaInmueble.valormin}" id="valormin"></h:inputText>
+                            <h:outputLabel  value="direccion"></h:outputLabel>
+                            <h:inputText class="form-control" value="#{altaInmueble.direccion}" id="direccion"></h:inputText>
+                            <h:outputLabel value="padron"></h:outputLabel>
+                            <h:inputText class="form-control" value="#{altaInmueble.padron}" id="padron"></h:inputText>
+                            <h:outputLabel value="banios"></h:outputLabel>
+                            <h:inputText class="form-control" value="#{altaInmueble.banios}" id="banios"></h:inputText>
+                            <h:outputLabel value="habitaciones"></h:outputLabel>
+                            <h:inputText class="form-control" value="#{altaInmueble.habitaciones}" id="habitaciones"></h:inputText>
+                            <h:outputLabel value="pisos"></h:outputLabel>
+                            <h:inputText class="form-control" value="#{altaInmueble.pisos}" id="pisos"></h:inputText>
+                            <h:outputLabel value="garage"></h:outputLabel>
+                            <h:inputText class="form-control" value="#{altaInmueble.garage}" id="garage"></h:inputText>
+                            <h:outputLabel value="jardin"></h:outputLabel>
+                            <h:inputText class="form-control" value="#{altaInmueble.jardin}" id="jardin"></h:inputText>
+                            <h:outputLabel value="descripcion"></h:outputLabel>
+                            <h:inputText class="form-control" value="#{altaInmueble.descripcion}" id="descripcion"></h:inputText>
+                            <h:outputLabel value="titulo"></h:outputLabel>
+                            <h:inputText class="form-control" value="#{altaInmueble.titulo}" id="titulo"></h:inputText>
+                            
+                            <h:outputLabel value="Propietario"></h:outputLabel>
+                            <h:selectOneMenu value="#{altaInmueble.propietario}">
+                                <f:selectItem itemLabel="Seleccione un propietario" />
+                                <f:selectItems value="#{altaInmueble.propietarioSeleccionado}" />
+                            </h:selectOneMenu>
+                            
+                            <h:commandButton class="btn btn-success" action="#{altaInmueble.crearInmueble()}" value="Crear"></h:commandButton>
+                            
+                       </h:form>
                       </div>
                 </div>
             </ui:define>
